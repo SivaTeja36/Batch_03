@@ -1,2 +1,10 @@
 print("hello roja")
-print("hii")
+print("roja is a developer")
+s = "mom"
+rev_str = ''
+for i in s:
+    rev_str = i + rev_str 
+if rev_str == s:
+    print("its palindrome")
+else:
+    print("its not a palindrome")
