@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><title>Products</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-6xl mx-auto p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-3xl font-bold">🛒 Products (30)</h1>
+      <button id="logoutBtn" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Logout</button>
+    </div>
+    <div class="flex flex-wrap gap-4 mb-4">
+      <select id="cat" class="p-2 border rounded"><option value="">All Categories</option></select>
+      <input id="minPrice" type="number" placeholder="Min ₹" class="p-2 border rounded w-32" />
+      <input id="maxPrice" type="number" placeholder="Max ₹" class="p-2 border rounded w-32" />
+      <button id="scrapeBtn" class="bg-blue-600 text-white px-3 py-1 rounded">🔄 Load</button>
+      <button id="exportBtn" class="bg-green-600 text-white px-3 py-1 rounded">📤 CSV</button>
+    </div>
+    <div class="overflow-x-auto bg-white rounded shadow">
+      <table class="min-w-full">
+        <thead class="bg-gray-200"><tr>
+          <th class="px-4 py-2">Image</th><th class="px-4 py-2">Title</th><th class="px-4 py-2">Category</th><th class="px-4 py-2">Price</th>
+        </tr></thead>
+        <tbody id="tbl" class="divide-y divide-gray-300"></tbody>
+      </table>
+    </div>
+    <div class="flex justify-center items-center mt-4 gap-4">
+      <button id="prev">⬅ Prev</button>
+      <span id="info"></span>
+      <button id="next">Next ➡</button>
+    </div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
+
