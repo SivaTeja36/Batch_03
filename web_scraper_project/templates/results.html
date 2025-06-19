@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="results-header">
+        <h2>Scraping Results for: {{ url }}</h2>
+        <a href="/" class="btn">Scrape Another Site</a>
+    </section>
+    
+    <section class="results-container">
+        {% for element, items in data.items() %}
+            <div class="result-section">
+                <h3>{{ element|title }} ({{ items|length }} found)</h3>
+                <ul>
+                    {% for item in items %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </section>
+    
+    <section class="export-section">
+        <h3>Export Data</h3>
+        <form action="/export" method="POST">
+            <input type="hidden" name="data" value="{{ data|tojson }}">
+            <div class="export-options">
+                <button type="submit" name="export_type" value="csv" class="btn">Export as CSV</button>
+                <button type="submit" name="export_type" value="json" class="btn">Export as JSON</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

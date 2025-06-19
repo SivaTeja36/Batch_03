@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="scraper-form">
+        <h2>Enter URL to Scrape</h2>
+        {% if error %}
+            <div class="alert error">
+                {{ error }}
+            </div>
+        {% endif %}
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="url">Website URL:</label>
+                <input type="url" id="url" name="url" required placeholder="https://example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="elements">Elements to Scrape (JSON format):</label>
+                <textarea id="elements" name="elements" rows="5" placeholder='{
+    "titles": "h1, h2, h3",
+    "paragraphs": "p",
+    "links": "a"
+}'>{
+    "titles": "h1, h2, h3",
+    "paragraphs": "p",
+    "links": "a"
+}</textarea>
+            </div>
+            
+            <button type="submit">Scrape Website</button>
+        </form>
+    </section>
+    
+    <section class="instructions">
+        <h3>How to Use</h3>
+        <ol>
+            <li>Enter a valid website URL</li>
+            <li>Optionally customize the elements to scrape using CSS selectors</li>
+            <li>Click "Scrape Website"</li>
+            <li>View and export your data</li>
+        </ol>
+        
+        <h3>Default Elements</h3>
+        <ul>
+            <li><strong>Titles:</strong> h1, h2, h3</li>
+            <li><strong>Paragraphs:</strong> p</li>
+            <li><strong>Links:</strong> a</li>
+        </ul>
+    </section>
+{% endblock %}
